@@ -1,0 +1,90 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Theikdi" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/app_theme_yellow</item>
+
+        <item name="colorPrimary">@color/app_theme_yellow</item>
+        <item name="colorOnSurface">@color/black</item> <!-- md_theme_onSurface -->
+        <item name="colorOnSurfaceVariant">#9C9C99</item> <!-- md_theme_onSurfaceVariant AAA7A7 -->
+
+        <item name="colorAccent">@color/red</item>
+
+        <item name="colorSurfaceDim">@color/app_theme_yellow</item>
+        <item name="colorSurfaceBright">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerLowest">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerLow">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainer">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerHigh">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerHighest">@color/app_theme_yellow</item>
+    </style>
+
+    <style name="Theme.Theikdi" parent="Base.Theme.Theikdi" />
+
+
+    <style name="Theme.ActionBar" parent="Theme.Material3.DayNight">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/app_theme_yellow</item>
+
+        <item name="colorPrimary">@color/app_theme_yellow</item>
+        <item name="colorOnSurface">@color/black</item> <!-- md_theme_onSurface -->
+        <item name="colorOnSurfaceVariant">#9C9C99</item> <!-- md_theme_onSurfaceVariant AAA7A7 -->
+
+        <item name="colorAccent">@color/red</item>
+
+        <item name="colorSurfaceDim">@color/app_theme_yellow</item>
+        <item name="colorSurfaceBright">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerLowest">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerLow">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainer">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerHigh">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerHighest">@color/app_theme_yellow</item>
+    </style>
+
+    <style name="wid" parent="Theme.ActionBar">
+        <item name="android:background">#550822</item>
+    </style>
+
+    <style name="Theme.Theikdi.Fullscreen" parent="Theme.Theikdi">
+        <item name="android:actionBarStyle">@style/Widget.Theme.Theikdi.ActionBar.Fullscreen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+
+    <style name="AppThemeYellow" parent="Theme.Material3.Light">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/app_theme_yellow</item>
+
+        <item name="colorPrimary">@color/app_theme_yellow</item>
+        <item name="colorOnSurface">@color/black</item> <!-- md_theme_onSurface -->
+        <item name="colorOnSurfaceVariant">#9C9C99</item> <!-- md_theme_onSurfaceVariant AAA7A7 -->
+
+        <item name="colorAccent">@color/red</item>
+
+        <item name="colorSurfaceDim">@color/app_theme_yellow</item>
+        <item name="colorSurfaceBright">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerLowest">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerLow">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainer">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerHigh">@color/app_theme_yellow</item>
+        <item name="colorSurfaceContainerHighest">@color/app_theme_yellow</item>
+    </style>
+
+    <style name="RedTextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/red</item>
+        <item name="hintTextColor">@color/red</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="GreenTextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_input_box_stroke_color</item>
+        <item name="hintTextColor">@color/green_box</item>
+        <item name="android:textColor">@color/green_box</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_radius</item>
+        <item name="errorTextColor">@color/red</item>
+    </style>
+</resources>

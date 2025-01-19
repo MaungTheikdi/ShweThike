@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,7 +13,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.card.MaterialCardView;
 import com.theikdi.shwethike.customers.CustomerListActivity;
+import com.theikdi.shwethike.sale.CreateSaleActivity;
+import com.theikdi.shwethike.stock.CreateStockActivity;
+import com.theikdi.shwethike.stock.StockViewAllActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     int SHOP_ID, USER_ID;
 
     CardView cardStock, cardCustomer;
+    MaterialCardView cardViewAll;
 
     private Intent intent;
 
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cardCustomer = findViewById(R.id.cardCustomer);
+        cardViewAll = findViewById(R.id.cardViewAll);
 
         sharedPreferences = getSharedPreferences("USER_DETAILS", MODE_PRIVATE);
 
@@ -48,15 +53,15 @@ public class MainActivity extends AppCompatActivity {
             finish();
         } else {
             USER_NAME = sharedPreferences.getString("user_name", "");
-            SHOP_ID = sharedPreferences.getInt("shop_id", -1);
-            USER_ID = sharedPreferences.getInt("user_id", -1);
+            SHOP_ID = sharedPreferences.getInt("shopId", -1);
+            USER_ID = sharedPreferences.getInt("userId", -1);
         }
 
         intent = new Intent();
 
         cardStock = findViewById(R.id.cardStock);
         cardStock.setOnClickListener(v -> {
-            intent.setClass(MainActivity.this, StockActivity.class);
+            intent.setClass(MainActivity.this, CreateStockActivity.class);
             startActivity(intent);
             //finish();
         });
@@ -73,6 +78,20 @@ public class MainActivity extends AppCompatActivity {
             intent.setClass(MainActivity.this, CustomerListActivity.class);
             startActivity(intent);
             //finish();
+        });
+
+        cardViewAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.setClass(MainActivity.this, StockViewAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        MaterialCardView cardSale = (MaterialCardView) findViewById(R.id.cardSale);
+        cardSale.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CreateSaleActivity.class);
+            startActivity(intent);
         });
     }
 

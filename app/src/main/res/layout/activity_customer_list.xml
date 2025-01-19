@@ -7,15 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".customers.CustomerListActivity">
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefreshlayout"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_name"
+        app:queryHint="အမည် / ဖုန်း ဖြင့်ရှာရန်"
+        app:iconifiedByDefault="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_view_name"
+        app:layout_constraintBottom_toBottomOf="parent"
         >
 
         <androidx.recyclerview.widget.RecyclerView

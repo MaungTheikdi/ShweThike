@@ -16,6 +16,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".purchase.CreatePurchaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".expense.CreateExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".expense.ExpenseListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sale.CreateSaleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".stock.StockViewAllActivity"
+            android:exported="false" />
+        <activity
             android:name=".supplier.CreateSupplierActivity"
             android:exported="false" />
         <activity
@@ -33,7 +48,7 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme" />
         <activity
-            android:name=".StockActivity"
+            android:name=".stock.CreateStockActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

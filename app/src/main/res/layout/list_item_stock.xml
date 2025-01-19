@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/row_container"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/acard_view"
+        app:cardElevation="3dp"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linear_bg_color"
+            android:paddingStart="5dp"
+            android:background="#00FF9800"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:paddingStart="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coca-cola"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/product_name"
+                    android:text="850 ml" />
+
+                <TextView
+                    android:id="@+id/product_barcode"
+                    android:drawableStart="@drawable/baseline_qr_code_2_24"
+                    android:drawableTint="@color/colorGrayB"
+                    android:drawablePadding="8dp"
+                    android:text="8834000202667"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/description"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/arelativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:background="@color/white"
+                android:gravity="end"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/astock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_toStartOf="@+id/in_stock"
+                    android:text="လက်ကျန်  "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/in_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="10"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sale_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/in_stock"
+                    android:layout_toStartOf="@+id/textView4"
+                    android:text="25,000" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_below="@id/in_stock"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ကျပ်" />
+
+                <TextView
+                    android:id="@+id/shop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sale_price"
+                    android:layout_alignParentEnd="true"
+                    android:text="ဆိုင်ဂိုထောင်"
+                    android:textColor="#0041FF" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

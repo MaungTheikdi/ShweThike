@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Linear layout as parent layout-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="12dp"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="8dp"
+    android:background="@android:color/white">
+    <!-- Text view to show the text Select course-->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_name"
+        app:queryHint="ပစ္စည်း အမည်ဖြင့်ရှာရန်"
+        app:iconifiedByDefault="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <!-- List view to insert list of items-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/go_to_add_customer"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_marginEnd="50dp"
+            android:textColor="@color/colorPurple"
+            android:layout_height="42dp"
+            android:text="Add New"/>
+
+        <TextView
+            android:id="@+id/close_dialog"
+            android:background="@color/white"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="Close"/>
+
+    </LinearLayout>
+
+</LinearLayout>

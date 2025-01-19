@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".sale.CreateSaleActivity">
+
+    <ScrollView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewCustomerSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@android:drawable/editbox_background"
+                android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                android:gravity="center_vertical"
+                android:hint="ဝယ်သူ ရွေးချယ်ပါ"
+                android:padding="12dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/textViewProductSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewCustomerSpinner"
+                android:background="@android:drawable/editbox_background"
+                android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                android:gravity="center_vertical"
+                android:hint="ပစ္စည်း ရွေးချယ်ပါ"
+                android:padding="12dp"
+                app:layout_constraintWidth_percent="0.5"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:text="2025-01-01"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:drawableStart="@drawable/baseline_calendar_month_24"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCustomerSpinner"
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/customer_layout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                android:hint="ဝယ်သူအမည်"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCustomerName"
+                    android:textColor="@color/black"
+                    android:enabled="false"
+                    android:inputType="text"
+                    android:drawableStart="@drawable/baseline_person_3_24"
+                    android:drawableTint="@color/colorGrayB"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/stock_name_layout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customer_layout"
+                android:hint="ပစ္စည်း အမည်"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtStockName"
+                    android:textColor="@color/black"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:drawableStart="@drawable/outline_box_24"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/img_scanner"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="61dp"
+                android:src="@drawable/outline_barcode_scanner_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/stock_name_layout"
+                app:layout_constraintBottom_toBottomOf="@id/stock_name_layout"
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/stock_description_layout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stock_name_layout"
+                android:hint="ဖော်ပြချက်"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.6"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtStockDesc"
+                    android:textColor="@color/black"
+                    android:enabled="false"
+                    android:singleLine="true"
+                    android:drawableStart="@drawable/baseline_info_outline_24"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/stock_price_layout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/stock_name_layout"
+                android:hint="ဈေးနှုန်း"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.35"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtStockPrice"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:drawableStart="@drawable/baseline_attach_money_24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/label_outstanding_qty"
+                android:text="ယခင် အိုးခွံ လက်ကျန်"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stock_price_layout"/>
+
+            <TextView
+                android:id="@+id/text_outstanding_qty"
+                android:text="12"
+                android:layout_marginTop="8dp"
+                android:paddingStart="10dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/label_outstanding_qty"
+                app:layout_constraintTop_toBottomOf="@+id/stock_price_layout"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/stock_out_layout"
+                app:boxStrokeColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_outstanding_qty"
+                android:hint="အရောင်း အရေအတွက်"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.6">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtStockOut"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/return_gas_shell_layout"
+                app:boxStrokeColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_outstanding_qty"
+                android:hint="အိုးခွံ ပြန်ရ"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.35"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtReturnGasShellQty"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/label_outstanding_amount"
+                android:text="ကြွေးကျန်ငွေ"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stock_out_layout"/>
+
+            <TextView
+                android:id="@+id/text_outstanding_amount"
+                android:text="12"
+                android:layout_marginTop="8dp"
+                android:paddingStart="10dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/label_outstanding_amount"
+                app:layout_constraintTop_toBottomOf="@+id/stock_out_layout"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/total_amount_layout"
+                app:boxStrokeColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_outstanding_amount"
+                android:hint="စုစုပေါင်း"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.6">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTotalAmount"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:enabled="false"
+                    android:imeOptions="actionNext"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/return_amount_layout"
+                app:boxStrokeColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_outstanding_amount"
+                android:hint="ရငွေ"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_percent="0.35"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtReturnAmount"
+                    android:textColor="@color/black"
+                    android:inputType="number"
+                    android:imeOptions="actionDone"
+                    android:drawablePadding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveStockOut"
+                android:text="Save"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/app_theme_yellow"
+                android:layout_marginVertical="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/total_amount_layout"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                />
+
+            <TextView
+                android:id="@+id/list_header_text"
+                android:layout_marginTop="20dp"
+                android:text="နောက်ဆုံး တင်ခဲ့သောစာရင်း"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/saveStockOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ListView
+                android:id="@+id/list_view"
+                app:layout_constraintTop_toBottomOf="@id/list_header_text"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

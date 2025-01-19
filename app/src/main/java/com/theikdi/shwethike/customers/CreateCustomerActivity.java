@@ -1,6 +1,5 @@
 package com.theikdi.shwethike.customers;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -8,16 +7,12 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.theikdi.shwethike.API.ApiService;
 import com.theikdi.shwethike.API.RetrofitClient;
 import com.theikdi.shwethike.R;
-import com.theikdi.shwethike.StockActivity;
 import com.theikdi.shwethike.model.Customer;
 
 import org.json.JSONException;

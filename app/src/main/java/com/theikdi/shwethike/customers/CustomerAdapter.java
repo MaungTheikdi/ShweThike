@@ -3,6 +3,8 @@ package com.theikdi.shwethike.customers;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,11 +13,47 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.theikdi.shwethike.R;
 import com.theikdi.shwethike.model.Customer;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
+public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> implements Filterable {
+
     private List<Customer> customers;
+    private List<Customer> customersFilter;
     private OnItemClickListener onItemClickListener;
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    customersFilter = customers;
+                } else {
+                    List<Customer> filteredList = new ArrayList<>();
+                    for (Customer row : customers) {
+                        if (row.getCustomer_name().toLowerCase().contains(charString.toLowerCase()) ||
+                                row.getPhone().contains(charSequence)) {
+                            filteredList.add(row);
+                        }
+                    }
+
+                    customersFilter = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = customersFilter;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                customersFilter = (ArrayList<Customer>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
 
     public interface OnItemClickListener{
         void onItemClick(Customer customer);
@@ -26,6 +64,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     public CustomerAdapter(List<Customer> customers) {
         this.customers = customers;
+        this.customersFilter = customers; // Initialize filtered list
     }
 
     @NonNull
@@ -37,7 +76,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull CustomerAdapter.CustomerViewHolder holder, int position) {
-        Customer customer = customers.get(position);
+        Customer customer = customersFilter.get(position);
         holder.customerName.setText(customer.getCustomer_name());
         holder.customerCategory.setText(customer.getCustomer_category());
         holder.address.setText(customer.getAddress());
@@ -57,7 +96,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     @Override
     public int getItemCount() {
-        return customers.size();
+        return customersFilter.size();
     }
 
     public class CustomerViewHolder extends RecyclerView.ViewHolder {

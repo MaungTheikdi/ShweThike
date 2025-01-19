@@ -1,7 +1,6 @@
-package com.theikdi.shwethike;
+package com.theikdi.shwethike.stock;
 
-import static android.text.TextUtils.isEmpty;
-
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,9 +10,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -21,6 +17,7 @@ import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 import com.theikdi.shwethike.API.ApiService;
 import com.theikdi.shwethike.API.RetrofitClient;
+import com.theikdi.shwethike.R;
 import com.theikdi.shwethike.barcode.ScannerActivity;
 import com.theikdi.shwethike.model.Product;
 
@@ -34,20 +31,26 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StockActivity extends AppCompatActivity {
+public class CreateStockActivity extends AppCompatActivity {
 
-    TextInputLayout textInputLayout1, textInputLayout2, textInputLayout3, textInputLayout4, textInputLayout5, textInputLayout6, textInputLayout7;
-    TextInputEditText edtProductBarcode, edtProductName, edtPurchasePrice, edtSalesPrice, edtPurchaseQty, edtSalesQty, edtInStock;
+    TextInputLayout textInputLayout1, textInputLayout2, textInputLayout3, textInputLayout4, textInputLayout5, textInputLayout6, textInputLayout7, textInputLayout8;
+    TextInputEditText edtProductBarcode, edtProductName, edtPurchasePrice, edtSalesPrice, edtPurchaseQty, edtSalesQty, edtInStock, edtDescription;
     AppCompatButton btnAddProduct;
 
     ImageView imgQRCode;
+    SharedPreferences sharedPreferences;
+    int SHOP_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_stock);
-        
+        setContentView(R.layout.activity_create_stock);
+
+        sharedPreferences = getSharedPreferences("USER_DETAILS", MODE_PRIVATE);
+
+        SHOP_ID = sharedPreferences.getInt("shopId", -1);
+
         textInputLayout1 = findViewById(R.id.textInputLayout1);
         textInputLayout2 = findViewById(R.id.textInputLayout2);
         textInputLayout3 = findViewById(R.id.textInputLayout3);
@@ -55,6 +58,7 @@ public class StockActivity extends AppCompatActivity {
         textInputLayout5 = findViewById(R.id.textInputLayout5);
         textInputLayout6 = findViewById(R.id.textInputLayout6);
         textInputLayout7 = findViewById(R.id.textInputLayout7);
+        textInputLayout8 = findViewById(R.id.textInputLayout8);
 
         imgQRCode = findViewById(R.id.imgQRCode);
         
@@ -65,7 +69,11 @@ public class StockActivity extends AppCompatActivity {
         edtPurchaseQty = findViewById(R.id.edtPurchaseQuantity);
         edtSalesQty = findViewById(R.id.edtSaleQuantity);
         edtInStock = findViewById(R.id.edtInstock);
+        edtDescription = findViewById(R.id.edtDescription);
         btnAddProduct = findViewById(R.id.btnAddProduct);
+
+        edtProductBarcode.setText(String.valueOf(SHOP_ID));
+
         
         
 
@@ -83,6 +91,7 @@ public class StockActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String barcode = edtProductBarcode.getText().toString();
                 String name = edtProductName.getText().toString();
+                String description = edtDescription.getText().toString();
                 String purchasePriceStr = edtPurchasePrice.getText().toString();
                 String salesPriceStr = edtSalesPrice.getText().toString();
                 String inStockStr = edtInStock.getText().toString();
@@ -101,7 +110,7 @@ public class StockActivity extends AppCompatActivity {
                     int purchasePrice = Integer.parseInt(purchasePriceStr);
                     int salesPrice = Integer.parseInt(salesPriceStr);
                     int inStock = Integer.parseInt(inStockStr);
-                    Product product = new Product(barcode, name, purchasePrice, salesPrice, 0, 0, inStock);
+                    Product product = new Product(barcode, name, description, purchasePrice, salesPrice, 0, 0, inStock, SHOP_ID);
                     saveProduct(product);
                 }
             }
@@ -158,13 +167,13 @@ public class StockActivity extends AppCompatActivity {
                     }
                     //Toast.makeText(StockActivity.this, message, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(StockActivity.this, "Error: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateStockActivity.this, "Error: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(StockActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CreateStockActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

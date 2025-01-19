@@ -13,11 +13,13 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,6 +46,8 @@ public class CustomerListActivity extends AppCompatActivity {
     List<Customer> customers;
 
     FloatingActionButton fabButton;
+    SwipeRefreshLayout swipeRefreshLayout;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +60,11 @@ public class CustomerListActivity extends AppCompatActivity {
             return insets;
         });
 
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         fabButton = findViewById(R.id.fabButton);
         recyclerView = findViewById(R.id.recyclerview);
+        searchView = findViewById(R.id.search_view_name);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         customers = new ArrayList<>();
@@ -77,6 +84,25 @@ public class CustomerListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Customer customer) {
                 bottomSheetDialog(customer);
+            }
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            fetchCustomerData();
+            swipeRefreshLayout.setRefreshing(false);
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                customerAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                customerAdapter.getFilter().filter(newText);
+                return false;
             }
         });
 

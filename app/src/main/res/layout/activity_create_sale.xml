@@ -176,7 +176,7 @@
 
             <TextView
                 android:id="@+id/text_outstanding_qty"
-                android:text="12"
+                android:text="0"
                 android:layout_marginTop="8dp"
                 android:paddingStart="10dp"
                 android:textStyle="bold"
@@ -242,7 +242,7 @@
 
             <TextView
                 android:id="@+id/text_outstanding_amount"
-                android:text="12"
+                android:text="0"
                 android:layout_marginTop="8dp"
                 android:paddingStart="10dp"
                 android:textStyle="bold"

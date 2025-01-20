@@ -17,7 +17,9 @@
         tools:targetApi="31">
         <activity
             android:name=".purchase.CreatePurchaseActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppThemeYellow"
+            />
         <activity
             android:name=".expense.CreateExpenseActivity"
             android:exported="false" />

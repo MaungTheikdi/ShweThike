@@ -41,7 +41,8 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabButton"
-        android:src="@drawable/baseline_qr_code_2_24"
+        android:src="@drawable/baseline_add_24"
+        android:backgroundTint="@color/app_theme_yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="16dp"

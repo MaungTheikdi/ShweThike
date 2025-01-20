@@ -88,6 +88,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/text_shop_info"
                     android:text="စာရင်းထည့်"
                     android:textColor="#9E9D9D"
@@ -96,7 +97,8 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout4"
+                    android:visibility="gone"
+                    android:id="@+id/linearLayoutCreate"
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -138,7 +140,7 @@
 
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardIn"
+                        android:id="@+id/cardPurchase"
 
                         android:clickable="true"
                         android:foreground="?attr/selectableItemBackground"
@@ -356,7 +358,7 @@
 
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardKpay"
+                        android:id="@+id/cardSupplier"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
@@ -541,7 +543,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textColor="@color/red"
+        android:textColor="#9C9C9C"
         android:text="Theikdi Maung | 09 263 230 440"/>
 
     <com.nambimobile.widgets.efab.ExpandableFabLayout
@@ -561,31 +563,35 @@
             app:efab_icon="@drawable/baseline_add_24"
             app:efab_iconAnimationRotationDeg="-225"
             app:efab_closingAnticipateTension="0"
-            app:label_text="Create"/>
+            app:label_backgroundColor="#FF003C"
+            app:label_marginPx="5"
+            app:label_text="စာရင်းထည့်"/>
 
         <com.nambimobile.widgets.efab.FabOption
+            android:id="@+id/create_sale_fabOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_color="#FF8800"
-            app:fab_icon="@drawable/baseline_notifications_24"
-            app:label_text="Email"
-            app:label_backgroundColor="#808080"
-            app:label_textColor="#FFC0CB"/>
-
+            app:fab_color="#004D08"
+            app:fab_icon="@drawable/baseline_attach_money_24"
+            app:label_text="အရောင်း"
+            app:label_backgroundColor="#004D08"
+            app:label_textColor="#FFFFFF"/>
         <com.nambimobile.widgets.efab.FabOption
+            android:id="@+id/create_purchase_fabOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_color="#5283F5"
-            app:fab_icon="@drawable/baseline_add_24"
-            app:label_text="Event"
-            app:label_backgroundColor="#0000FF"/>
+            app:fab_color="#FF003C"
+            app:fab_icon="@drawable/baseline_shopping_cart_24"
+            app:label_text="အဝယ်"
+            app:label_backgroundColor="#FF003C"/>
         <com.nambimobile.widgets.efab.FabOption
+            android:id="@+id/create_stock_fabOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_color="#007F00"
-            app:fab_icon="@drawable/gas_cylinder"
-            app:label_text="Reminder"
-            app:label_backgroundColor="#7F7F00"/>
+            app:fab_color="#0052FF"
+            app:fab_icon="@drawable/outline_box_24"
+            app:label_text="ပစ္စည်းအသစ်"
+            app:label_backgroundColor="#0052FF"/>
 
     </com.nambimobile.widgets.efab.ExpandableFabLayout>
 

@@ -9,14 +9,17 @@
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
-    <!-- Custom BottomSheetDialog style -->
-    <style name="CustomBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
-    </style>
 
-    <!-- Custom BottomSheet style -->
-    <style name="CustomBottomSheet" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:backgroundTint">#FFEEEE</item> <!-- Set your desired color -->
+    <style name="TheikdiBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/theikdi_bottom_sheet_background</item>
+        <item name="shapeAppearanceMediumComponent">@style/CustomShapeAppearance</item>
+    </style>
+    <style name="CustomShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
 
 </resources>

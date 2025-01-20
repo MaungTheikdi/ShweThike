@@ -4,8 +4,10 @@ import com.theikdi.shwethike.APIResponse.LoginResponse;
 import com.theikdi.shwethike.model.Customer;
 import com.theikdi.shwethike.model.Expense;
 import com.theikdi.shwethike.model.Product;
+import com.theikdi.shwethike.model.Purchase;
 import com.theikdi.shwethike.model.Sale;
 import com.theikdi.shwethike.model.StockView;
+import com.theikdi.shwethike.model.Supplier;
 import com.theikdi.shwethike.model.User;
 
 import java.util.List;
@@ -22,34 +24,41 @@ import retrofit2.http.Path;
 public interface ApiService {
     @POST("register.php")
     Call<ResponseBody> registerUser (@Body User user);
-
     @POST("login.php")
     Call<LoginResponse> loginUser (@Body User user);
 
+    @GET("products.php")
+    Call<List<StockView>> getStockList();
     @POST("products.php")
     Call<ResponseBody> addProduct (@Body Product product);
 
 
     @GET("customers.php")
     Call<List<Customer>> getCustomerList();
-
     @POST("customers.php")
     Call<ResponseBody> createCustomer (@Body Customer customer);
-
-    /*@PUT("customers.php/{customer_id}")
-    Call<ResponseBody> updateCustomer (@Body Customer customer, @Path("customer_id") int customerId);
-     */
     @PUT("customers.php")
     Call<ResponseBody> updateCustomer (@Body Customer customer);
+    @DELETE("customers.php")
+    Call<ResponseBody> deleteCustomer (@Body Customer customer);
 
-    @GET("products.php/{product_id}")
-    Call<Product> getProductById (@Path("product_id") int productId);
+    @GET("suppliers.php")
+    Call<List<Supplier>> getSupplierList();
+    @POST("suppliers.php")
+    Call<ResponseBody> createSupplier (@Body Supplier supplier);
+    @PUT("suppliers.php")
+    Call<ResponseBody> updateSupplier (@Body Supplier supplier);
+    @DELETE("suppliers.php")
+    Call<ResponseBody> deleteSupplier (@Path("supplier_id") int supplierId);
 
-    @GET("products.php")
-    Call<List<StockView>> getStockList();
+
+
 
     @POST("sales.php")
     Call<ResponseBody> addSale (@Body Sale sale);
+
+    @POST("purchases.php")
+    Call<ResponseBody> addPurchase (@Body Purchase purchase);
 
 
     @POST("expenses.php")

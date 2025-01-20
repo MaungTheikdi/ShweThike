@@ -110,7 +110,7 @@ public class CustomerListActivity extends AppCompatActivity {
 
     private void bottomSheetDialog(Customer customer) {
 
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(CustomerListActivity.this, R.style.CustomBottomSheetDialog);
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(CustomerListActivity.this, R.style.TheikdiBottomSheetDialog);
         //View bottomSheetView = LayoutInflater.from(this).inflate( R.layout.bottom_sheet_customer_details, false);
         View bottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheet_customer_details, null);
         bottomSheetDialog.setContentView(bottomSheetView);
@@ -156,8 +156,6 @@ public class CustomerListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
 
     }

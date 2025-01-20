@@ -188,13 +188,13 @@ public class CreateCustomerActivity extends AppCompatActivity {
                     }
                     //Toast.makeText(StockActivity.this, message, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(CreateCustomerActivity.this, "Response fail: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Response fail: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(CreateCustomerActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

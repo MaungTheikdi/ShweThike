@@ -66,8 +66,6 @@ public class CreateSaleActivity extends AppCompatActivity {
     AppCompatButton saveStockOut;
     int STOCK_ID;
     int CUSTOMER_ID;
-    String wareHouse;
-
 
     // For Stock Search
     Dialog dialog;
@@ -181,9 +179,13 @@ public class CreateSaleActivity extends AppCompatActivity {
                         STOCK_ID = stockView.getProduct_id();
                         edtStockName.setText(stockView.getProduct_name());
                         edtStockDesc.setText(stockView.getDescription());
-                        wareHouse = stockView.getShop_name();
                         edtStockPrice.setText(Theikdi.numberFormat(stockView.getSale_price()));
-
+                        if (stockView.getProduct_id() == 2){
+                            edtStockOut.setText("0");
+                            edtStockOut.setEnabled(false);
+                            edtTotalAmount.setText("0");
+                            edtTotalAmount.setEnabled(false);
+                        }
                         dialog.dismiss();
                     }
                 });
@@ -299,15 +301,15 @@ public class CreateSaleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validateForm()) {
-                    int quantity = Integer.parseInt(edtStockOut.getText().toString());
-                    int return_quantity = Integer.parseInt(edtReturnGasShellQty.getText().toString());
+                    int quantity = Integer.parseInt(edtStockOut.getText().toString().trim().replace(",", ""));
+                    int return_quantity = Integer.parseInt(edtReturnGasShellQty.getText().toString().trim().replace(",", ""));
                     // text_outstanding_qty + quantity - return_quantity
-                    int outstanding_quantity = Integer.parseInt(text_outstanding_qty.getText().toString().replace(",", "")) + quantity - return_quantity;
+                    int outstanding_quantity = Integer.parseInt(text_outstanding_qty.getText().toString().trim().replace(",", "")) + quantity - return_quantity;
                     int price = Integer.parseInt(edtStockPrice.getText().toString().trim().replace(",", ""));
-                    int totalAmount = Integer.parseInt(edtTotalAmount.getText().toString().replace(",", ""));
-                    int received_amount = Integer.parseInt(edtReturnAmount.getText().toString());
+                    int totalAmount = Integer.parseInt(edtTotalAmount.getText().toString().trim().replace(",", ""));
+                    int received_amount = Integer.parseInt(edtReturnAmount.getText().toString().trim().replace(",", ""));
                     // text_outstanding_amount + total - received_amount
-                    int outstanding_amount = Integer.parseInt(text_outstanding_amount.getText().toString().replace(",", "")) + totalAmount - received_amount;
+                    int outstanding_amount = Integer.parseInt(text_outstanding_amount.getText().toString().trim().replace(",", "")) + totalAmount - received_amount;
                     String sale_date = tv_date.getText().toString();
                     String due_date = Theikdi.getDueDate(sale_date);
 
@@ -437,7 +439,6 @@ public class CreateSaleActivity extends AppCompatActivity {
         });
     }
 
-
     private void fetchCustomerData() {
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
         Call<List<Customer>> call = apiService.getCustomerList();
@@ -460,7 +461,5 @@ public class CreateSaleActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 }

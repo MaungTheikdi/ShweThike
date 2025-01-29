@@ -41,13 +41,13 @@ import retrofit2.Response;
 
 public class CustomerListActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    CustomerAdapter customerAdapter;
-    List<Customer> customers;
-
     FloatingActionButton fabButton;
     SwipeRefreshLayout swipeRefreshLayout;
     SearchView searchView;
+
+    RecyclerView recyclerView;
+    CustomerAdapter customerAdapter;
+    List<Customer> customers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,5 +181,11 @@ public class CustomerListActivity extends AppCompatActivity {
                 Toast.makeText(CustomerListActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchCustomerData();
     }
 }

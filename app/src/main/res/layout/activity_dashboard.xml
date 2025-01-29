@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dashboard.DashboardActivity">
+
+    <ScrollView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/label1"
+                            android:text="ရရန် အ‌ကြွေး"
+                            android:padding="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/outstanding_amount"
+                            android:layout_below="@id/label1"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:padding="8dp"
+                            android:text="0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/label2"
+                            android:text="ရရန်အိုးခွံ"
+                            android:padding="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:text="0"
+                            android:id="@+id/outstanding_qty"
+                            android:layout_below="@id/label2"
+                            android:padding="8dp"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/monthlyProfitChart"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/lastSevenDaysSalesChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/lastSevenDaysPurchaseChart"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/monthlySalesChart"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/monthlyPurchaseChart"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

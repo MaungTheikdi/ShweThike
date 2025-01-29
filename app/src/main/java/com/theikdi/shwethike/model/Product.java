@@ -1,6 +1,7 @@
 package com.theikdi.shwethike.model;
 
 public class Product {
+    private int product_id;
     private String product_barcode;
     private String product_name;
     private String description;
@@ -10,7 +11,8 @@ public class Product {
     private int sale_qty;
     private int instock;
     private int shop_id;
-    public Product(String product_barcode, String product_name, String description, int purchase_price, int sale_price, int purchase_qty, int sale_qty, int instock, int shop_id) {
+    public Product(int product_id, String product_barcode, String product_name, String description, int purchase_price, int sale_price, int purchase_qty, int sale_qty, int instock, int shop_id) {
+        this.product_id = product_id;
         this.product_barcode = product_barcode;
         this.product_name = product_name;
         this.description = description;

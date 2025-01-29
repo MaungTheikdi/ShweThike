@@ -27,8 +27,9 @@
 
     <TextView
         android:id="@+id/shop_id"
-        android:text="Shwe Thike"
-        android:textSize="16sp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:layout_below="@id/imageView"
         android:layout_width="match_parent"
@@ -88,7 +89,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/text_shop_info"
                     android:text="စာရင်းထည့်"
                     android:textColor="#9E9D9D"
@@ -97,7 +97,6 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
-                    android:visibility="gone"
                     android:id="@+id/linearLayoutCreate"
                     android:layout_marginBottom="10dp"
                     android:orientation="horizontal"
@@ -199,7 +198,7 @@
                                 android:layout_height="60dp"/>
 
                             <TextView
-                                android:text="Stock"
+                                android:text="အသစ်"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -216,13 +215,118 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardViewAll"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardElevation="3dp"
+                        android:layout_margin="5dp"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:gravity="center_vertical|center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:src="@drawable/ready_stock_6828668"
+                                android:padding="10dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"/>
+
+                            <TextView
+                                android:text="အားလုံး"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardWarehouse"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardElevation="3dp"
+                        android:layout_margin="5dp"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:gravity="center_vertical|center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:src="@drawable/storage_stacks"
+                                android:padding="10dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"/>
+
+                            <TextView
+                                android:text="ဂိုထောင်"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardShop"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardElevation="3dp"
+                        android:layout_margin="5dp"
+                        android:padding="8dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:gravity="center_vertical|center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:src="@drawable/stock"
+                                android:padding="10dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"/>
+
+                            <TextView
+                                android:text="ဆိုင်"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/linearLayout1"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardNew"
+                        android:id="@+id/cardToday"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
@@ -254,7 +358,7 @@
 
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardToday"
+                        android:id="@+id/cardHistory"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
@@ -278,7 +382,7 @@
                                 android:layout_height="60dp"/>
 
                             <TextView
-                                android:text="ဝယ်စာရင်း"
+                                android:text="ရောင်းဝယ်"
                                 android:textSize="11sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -286,7 +390,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardThisMonth"
+                        android:id="@+id/cardCustomerCredit"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
@@ -310,7 +414,7 @@
                                 android:layout_height="60dp"/>
 
                             <TextView
-                                android:text="ရောင်းစာရင်း"
+                                android:text="အကြွေး"
                                 android:textSize="11sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -389,7 +493,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardBank"
+                        android:id="@+id/cardExpenses"
                         android:clickable="true"
                         android:focusable="true"
                         android:foreground="?attr/selectableItemBackground"
@@ -422,108 +526,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardNotification"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground"
-                        app:cardElevation="3dp"
-                        android:layout_margin="5dp"
-                        android:padding="8dp"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:gravity="center_vertical|center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:src="@drawable/storage_stacks"
-                                android:padding="10dp"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"/>
-
-                            <TextView
-                                android:text="ဂိုထောင်"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardRemainTransfer"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground"
-                        app:cardElevation="3dp"
-                        android:layout_margin="5dp"
-                        android:padding="8dp"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:gravity="center_vertical|center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:src="@drawable/stock"
-                                android:padding="10dp"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"/>
-
-                            <TextView
-                                android:text="ဆိုင်"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardViewAll"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackground"
-                        app:cardElevation="3dp"
-                        android:layout_margin="5dp"
-                        android:padding="8dp"
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:gravity="center_vertical|center_horizontal"
-                            android:orientation="vertical"
-                            android:padding="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:src="@drawable/ready_stock_6828668"
-                                android:padding="10dp"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"/>
-
-                            <TextView
-                                android:text="အားလုံး"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
 
             </LinearLayout>
 

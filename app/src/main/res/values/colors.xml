@@ -20,4 +20,7 @@
     <color name="focused_color">#076C3B</color> <!-- Example: Red when focused -->
     <color name="default_color">#FFEA00</color> <!-- Example: Gray when not focused -->
     <color name="text_input_box_stroke_color">#FF000000</color> <!-- Example: Black when not focused -->
+
+    <color name="credit_bg_color">#FFD7D7</color>
+    <color name="no_credit_bg_color">#FFFFFF</color>
 </resources>

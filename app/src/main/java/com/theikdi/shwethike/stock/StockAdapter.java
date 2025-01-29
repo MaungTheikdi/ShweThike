@@ -87,9 +87,12 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         holder.shop_name.setText(stockView.getShop_name());
         holder.in_stock.setText(String.valueOf(stockView.getInstock()));
 
-        holder.itemView.setOnClickListener(v -> {
-            if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(stockView);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null){
+                    onItemClickListener.onItemClick(stockView);
+                }
             }
         });
     }

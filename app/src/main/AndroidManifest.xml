@@ -16,10 +16,35 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".sale.SaleListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PasswordChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dashboard.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".reports.CustomerCreditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".today.TodayActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeYellow" />
+        <activity
+            android:name=".reports.ShopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".reports.WarehouseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".history.HistoryActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeYellow" />
+        <activity
             android:name=".purchase.CreatePurchaseActivity"
             android:exported="false"
-            android:theme="@style/AppThemeYellow"
-            />
+            android:theme="@style/AppThemeYellow" />
         <activity
             android:name=".expense.CreateExpenseActivity"
             android:exported="false" />

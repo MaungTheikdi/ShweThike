@@ -54,5 +54,7 @@ dependencies {
 
     implementation("com.nambimobile.widgets:expandable-fab:1.2.1")
 
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
     
 }

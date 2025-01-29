@@ -36,11 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         sharedPreferences = getSharedPreferences("USER_DETAILS", MODE_PRIVATE);
 
@@ -61,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String USERNAME = userName.getText().toString();
-                String PASSWORD = password.getText().toString();
+                String USERNAME = userName.getText().toString().trim();
+                String PASSWORD = password.getText().toString().trim();
                 String SECRET_CODE = RetrofitClient.SECRET_KEY;
                 User user = new User(USERNAME, PASSWORD, SECRET_CODE);
                 loginUser(user);

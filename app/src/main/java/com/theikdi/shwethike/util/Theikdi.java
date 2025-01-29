@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.widget.TextView;
 
+import com.theikdi.shwethike.expense.CreateExpenseActivity;
 import com.theikdi.shwethike.sale.CreateSaleActivity;
 
 import java.text.NumberFormat;
@@ -16,10 +17,17 @@ import android.content.Context;
 import android.widget.TextView;
 import java.util.Calendar;
 import android.widget.DatePicker;
+import android.widget.Toast;
+
 public class Theikdi {
     public static String numberFormat(int value){
         NumberFormat formatter = NumberFormat.getNumberInstance(Locale.US);
         String format = formatter.format((double) value);
+        return format;
+    }
+    public static String numberFormatString(String value){
+        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.US);
+        String format = formatter.format((Double.parseDouble(value)));
         return format;
     }
 
@@ -28,6 +36,22 @@ public class Theikdi {
         SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+
+    public static String yyyymmddToMMMdd(String yyyymmdd) {
+        String formattedDate = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("MMM dd", Locale.US);
+
+        try {
+            Date date = sdf.parse(yyyymmdd);
+            formattedDate = sdf2.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return formattedDate;
+    }
+
 
     public static void showDatePickerDialog(Context context, final TextView tvDate) {
         // Get the current date
@@ -76,6 +100,10 @@ public class Theikdi {
             e.printStackTrace();
             return null; // Handle parsing error if necessary
         }
+    }
+
+    public static void showToast(Context context, String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
 

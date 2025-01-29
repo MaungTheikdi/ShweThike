@@ -78,7 +78,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHold
         Expense expense = expensesFilter.get(position);
         holder.username.setText(expense.getUser_name());
         holder.description.setText(expense.getDescription());
-        holder.amount.setText(expense.getAmount());
+        holder.amount.setText(String.valueOf(expense.getAmount()));
         holder.date.setText(expense.getDate());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

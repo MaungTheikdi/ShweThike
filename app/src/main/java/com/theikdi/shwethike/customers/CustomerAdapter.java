@@ -1,10 +1,12 @@
 package com.theikdi.shwethike.customers;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,9 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.theikdi.shwethike.R;
 import com.theikdi.shwethike.model.Customer;
+import com.theikdi.shwethike.util.Theikdi;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> implements Filterable {
 
@@ -83,6 +90,40 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         holder.phone.setText(customer.getPhone());
         holder.outstandingShellQty.setText("ရရန်အိုးခွံ - " + String.valueOf(customer.getOutstanding_gas_shell_qty()));
         holder.outstandingAmount.setText("ရရန်ငွေ - "+String.valueOf(customer.getOutstanding_amount()));
+        //holder.dueDate.setText(customer.getDue_date());
+
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+        try {
+            // Parse due date from string
+            Date dueDate = dateFormat.parse(customer.getDue_date());
+
+            if (dueDate != null && dueDate.before(currentDate)) {
+                // If the due date is before the current date, set text color to red
+                //holder.dueDate.setTextColor(Color.RED);
+                holder.relativeLayout.setBackgroundColor(Color.rgb(255,215,215));
+            } else {
+                // Otherwise, set text color to default (black)
+                //holder.dueDate.setTextColor(Color.BLACK);
+                holder.relativeLayout.setBackgroundColor(Color.WHITE);
+            }
+
+            // Set due date text
+            holder.dueDate.setText(customer.getDue_date());
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        // Your existing code to set the due date text
+        holder.dueDate.setText(customer.getDue_date());
+
+        //if (customer.getDue_date().compareTo(Theikdi.currentDate()) > 0) {
+        //    holder.relativeLayout.setBackgroundColor(Color.rgb(255,215,215));
+        //} else {
+        //    holder.relativeLayout.setBackgroundColor(Color.WHITE);
+        //}
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,17 +141,23 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     }
 
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
-        TextView customerName, customerCategory, address, phone, outstandingShellQty, outstandingAmount;
+        RelativeLayout relativeLayout;
+        TextView customerName, customerCategory, address, phone, outstandingShellQty, outstandingAmount, dueDate;
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
+            relativeLayout = itemView.findViewById(R.id.relative_layout);
             customerName = itemView.findViewById(R.id.customerName);
             customerCategory = itemView.findViewById(R.id.customerCategory);
             address = itemView.findViewById(R.id.address);
             phone = itemView.findViewById(R.id.phone);
             outstandingShellQty = itemView.findViewById(R.id.outstandingShellQty);
             outstandingAmount = itemView.findViewById(R.id.outstandingAmount);
+            dueDate = itemView.findViewById(R.id.due_date);
         }
     }
 
 
+
 }
+
+
